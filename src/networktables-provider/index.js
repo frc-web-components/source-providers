@@ -1,13 +1,5 @@
 
-import { SourceProvider, addSourceProviderType } from '@webbitjs/store';
-import './nt-boolean';
-import './nt-number';
-import './nt-string';
-import './nt-boolean-array';
-import './nt-number-array';
-import './nt-string-array';
-import './nt-robot-connection';
-import './nt-global-listener';
+import { SourceProvider } from '@webbitjs/store';
 import './networktables';
 
 const getType = (value) => {
@@ -37,8 +29,8 @@ export default class NetworkTablesProvider extends SourceProvider {
     };
   }
 
-  constructor(providerName, settings) {
-    super(providerName, settings);
+  constructor(store, providerName, settings) {
+    super(store, providerName, settings);
     this.setAddress(settings.address);
     this.updatedEntriesBeforeReady = [];
     this.isNtReady = false;
